@@ -45,7 +45,7 @@ const updateItem = async(req,res)=>{
     }
     (item.name = req.body.name || item.name),
     (item.quantity = req.body.quantity || item.quantity),
-    (item.marked = req.body.marked || item.marked);
+    (item.marked = req.body.marked);
      const updatedItem = await item.save();
      res.json(updatedItem);
    } catch (error) {
