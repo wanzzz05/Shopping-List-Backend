@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const itemRoutes = require('./routes/itemRoutes');
+const authRoutes = require('./routes/authRoutes');
+
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -19,6 +21,8 @@ db.once('open', ()=>(console.log('connected to MongoDB')
 ))
 
 app.use('/item',itemRoutes);
+
+app.use('/user',authRoutes);
 
 // Define a route for GET requests to the root URL
 app.get('/yes', (req, res) => {
